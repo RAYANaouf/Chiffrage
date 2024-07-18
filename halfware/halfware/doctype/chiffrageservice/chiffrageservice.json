@@ -1,0 +1,52 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-07-18 15:36:49.441715",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "name1",
+  "brand",
+  "column_break_5axs",
+  "pricebyyear",
+  "characteristic"
+ ],
+ "fields": [
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "name"
+  },
+  {
+   "fieldname": "brand",
+   "fieldtype": "Data",
+   "label": "brand"
+  },
+  {
+   "fieldname": "pricebyyear",
+   "fieldtype": "Data",
+   "label": "priceByYear"
+  },
+  {
+   "fieldname": "column_break_5axs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "characteristic",
+   "fieldtype": "Data",
+   "label": "characteristic"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-07-18 16:00:45.919256",
+ "modified_by": "Administrator",
+ "module": "Halfware",
+ "name": "ChiffrageService",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
