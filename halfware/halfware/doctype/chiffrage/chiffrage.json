@@ -8,7 +8,8 @@
   "project",
   "hardware",
   "service",
-  "amended_from"
+  "amended_from",
+  "estimated_cost"
  ],
  "fields": [
   {
@@ -38,12 +39,18 @@
    "fieldtype": "Table",
    "label": "Service",
    "options": "ChiffrageService"
+  },
+  {
+   "fieldname": "estimated_cost",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "EstimatedCost"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-18 17:25:38.717645",
+ "modified": "2024-07-20 00:40:06.395418",
  "modified_by": "Administrator",
  "module": "Halfware",
  "name": "chiffrage",

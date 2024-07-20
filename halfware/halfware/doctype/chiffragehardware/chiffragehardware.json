@@ -5,31 +5,71 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "name1",
-  "price",
-  "color"
+  "hardware_name",
+  "type",
+  "column_break_qybp",
+  "unit_price",
+  "quantity",
+  "section_break_kv3s",
+  "description",
+  "section_break_bsry",
+  "total_price"
  ],
  "fields": [
   {
-   "fieldname": "name1",
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "type",
+   "options": "computer\naccessories"
+  },
+  {
+   "fieldname": "column_break_qybp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Quantity"
+  },
+  {
+   "fieldname": "section_break_kv3s",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "section_break_bsry",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "hardware_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Name"
   },
   {
-   "fieldname": "price",
+   "fieldname": "unit_price",
    "fieldtype": "Float",
-   "label": "Price"
+   "in_list_view": 1,
+   "label": "UnitPrice"
   },
   {
-   "fieldname": "color",
-   "fieldtype": "Color",
-   "label": "Color"
+   "fieldname": "total_price",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "TotalPrice"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-07-18 17:19:31.106940",
+ "modified": "2024-07-19 23:43:38.101186",
  "modified_by": "Administrator",
  "module": "Halfware",
  "name": "ChiffrageHardware",

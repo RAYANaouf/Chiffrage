@@ -6,41 +6,81 @@
  "engine": "InnoDB",
  "field_order": [
   "name1",
-  "brand",
+  "price_by_month",
   "column_break_5axs",
-  "pricebyyear",
-  "characteristic"
+  "brand",
+  "months",
+  "section_break_achc",
+  "devlopers",
+  "section_break_mb93",
+  "detail",
+  "section_break_ywbh",
+  "total_price"
  ],
  "fields": [
   {
    "fieldname": "name1",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "name"
   },
   {
    "fieldname": "brand",
    "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "brand"
-  },
-  {
-   "fieldname": "pricebyyear",
-   "fieldtype": "Data",
-   "label": "priceByYear"
   },
   {
    "fieldname": "column_break_5axs",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "characteristic",
-   "fieldtype": "Data",
-   "label": "characteristic"
+   "fieldname": "section_break_achc",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "devlopers",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "devlopers",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "section_break_mb93",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "detail",
+   "fieldtype": "Text",
+   "label": "Detail"
+  },
+  {
+   "fieldname": "months",
+   "fieldtype": "Int",
+   "label": "Months"
+  },
+  {
+   "fieldname": "section_break_ywbh",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_price",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "TotalPrice"
+  },
+  {
+   "fieldname": "price_by_month",
+   "fieldtype": "Currency",
+   "label": "priceByMonth"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-07-18 16:00:45.919256",
+ "modified": "2024-07-20 00:05:44.427357",
  "modified_by": "Administrator",
  "module": "Halfware",
  "name": "ChiffrageService",
