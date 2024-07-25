@@ -6,10 +6,23 @@
  "engine": "InnoDB",
  "field_order": [
   "project",
-  "hardware",
+  "section_break_0xj3",
+  "risk",
+  "column_break_cq8x",
+  "taux_de_risk",
+  "section_break_y4he",
+  "marge",
+  "column_break_kx9p",
+  "la_marge",
+  "tab_break_rdi3",
+  "material",
+  "services_tab",
   "service",
   "amended_from",
-  "estimated_cost"
+  "section_break_8u7c",
+  "human_resources_tab",
+  "human_resources",
+  "section_break_svga"
  ],
  "fields": [
   {
@@ -18,21 +31,16 @@
    "label": "Amended From",
    "no_copy": 1,
    "options": "chiffrage",
-   "print_hide": 1,
    "read_only": 1,
    "search_index": 1
   },
   {
    "fieldname": "project",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Project",
-   "options": "Project"
-  },
-  {
-   "fieldname": "hardware",
-   "fieldtype": "Table",
-   "label": "Hardware",
-   "options": "ChiffrageHardware"
+   "options": "Project",
+   "reqd": 1
   },
   {
    "fieldname": "service",
@@ -41,16 +49,83 @@
    "options": "ChiffrageService"
   },
   {
-   "fieldname": "estimated_cost",
+   "fieldname": "material",
+   "fieldtype": "Table",
+   "label": "Material",
+   "options": "ChiffrageHardware"
+  },
+  {
+   "fieldname": "human_resources",
+   "fieldtype": "Table",
+   "label": "Human Resources",
+   "options": "ChiffrageHumanResource"
+  },
+  {
+   "fieldname": "section_break_0xj3",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "risk",
+   "fieldtype": "Select",
+   "label": "Risk ",
+   "options": "Taux\nMantant"
+  },
+  {
+   "fieldname": "column_break_cq8x",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "taux_de_risk",
+   "fieldtype": "Percent",
+   "label": "Taux de risk"
+  },
+  {
+   "fieldname": "section_break_svga",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "marge",
+   "fieldtype": "Select",
+   "label": "marge",
+   "options": "percent\nmantant"
+  },
+  {
+   "fieldname": "column_break_kx9p",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "la_marge",
    "fieldtype": "Currency",
-   "in_list_view": 1,
-   "label": "EstimatedCost"
+   "label": "la marge"
+  },
+  {
+   "fieldname": "section_break_y4he",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_8u7c",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "tab_break_rdi3",
+   "fieldtype": "Tab Break",
+   "label": "Materials"
+  },
+  {
+   "fieldname": "services_tab",
+   "fieldtype": "Tab Break",
+   "label": "Services"
+  },
+  {
+   "fieldname": "human_resources_tab",
+   "fieldtype": "Tab Break",
+   "label": "Human Resources"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-20 00:40:06.395418",
+ "modified": "2024-07-25 02:11:38.200950",
  "modified_by": "Administrator",
  "module": "Halfware",
  "name": "chiffrage",

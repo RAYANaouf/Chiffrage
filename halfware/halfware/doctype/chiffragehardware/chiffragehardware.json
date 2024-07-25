@@ -5,71 +5,89 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "hardware_name",
-  "type",
-  "column_break_qybp",
+  "item",
+  "column_break_yedx",
+  "material_name",
+  "section_break_fmwy",
   "unit_price",
+  "column_break_m2c0",
   "quantity",
-  "section_break_kv3s",
-  "description",
-  "section_break_bsry",
-  "total_price"
+  "column_break_3a3o",
+  "unit",
+  "section_break_k79y",
+  "billable",
+  "section_break_2q2k",
+  "description"
  ],
  "fields": [
   {
-   "fieldname": "type",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "type",
-   "options": "computer\naccessories"
+   "columns": 2,
+   "fieldname": "material_name",
+   "fieldtype": "Data",
+   "label": "Material Name"
   },
   {
-   "fieldname": "column_break_qybp",
-   "fieldtype": "Column Break"
+   "fieldname": "unit_price",
+   "fieldtype": "Data",
+   "label": "Unit price"
   },
   {
    "fieldname": "quantity",
-   "fieldtype": "Int",
-   "in_list_view": 1,
+   "fieldtype": "Data",
    "label": "Quantity"
   },
   {
-   "fieldname": "section_break_kv3s",
+   "fieldname": "column_break_m2c0",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_fmwy",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_3a3o",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "label": "Unit",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "section_break_k79y",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "billable",
+   "fieldtype": "Check",
+   "label": "billable"
+  },
+  {
+   "fieldname": "section_break_2q2k",
    "fieldtype": "Section Break"
   },
   {
    "fieldname": "description",
    "fieldtype": "Text",
-   "label": "Description"
+   "label": "description"
   },
   {
-   "fieldname": "section_break_bsry",
-   "fieldtype": "Section Break"
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "Item",
+   "options": "Item"
   },
   {
-   "fieldname": "hardware_name",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Name"
-  },
-  {
-   "fieldname": "unit_price",
-   "fieldtype": "Float",
-   "in_list_view": 1,
-   "label": "UnitPrice"
-  },
-  {
-   "fieldname": "total_price",
-   "fieldtype": "Int",
-   "in_list_view": 1,
-   "label": "TotalPrice"
+   "fieldname": "column_break_yedx",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-07-19 23:43:38.101186",
+ "modified": "2024-07-21 16:48:29.174003",
  "modified_by": "Administrator",
  "module": "Halfware",
  "name": "ChiffrageHardware",
