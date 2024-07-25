@@ -16,24 +16,17 @@
   "la_marge",
   "tab_break_rdi3",
   "material",
+  "materials_cost",
   "services_tab",
   "service",
-  "amended_from",
+  "services_cost_cost",
   "section_break_8u7c",
   "human_resources_tab",
   "human_resources",
+  "human_resources_cost",
   "section_break_svga"
  ],
  "fields": [
-  {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "chiffrage",
-   "read_only": 1,
-   "search_index": 1
-  },
   {
    "fieldname": "project",
    "fieldtype": "Link",
@@ -120,12 +113,27 @@
    "fieldname": "human_resources_tab",
    "fieldtype": "Tab Break",
    "label": "Human Resources"
+  },
+  {
+   "fieldname": "materials_cost",
+   "fieldtype": "Currency",
+   "label": "Total cost"
+  },
+  {
+   "fieldname": "services_cost_cost",
+   "fieldtype": "Currency",
+   "label": "Total cost"
+  },
+  {
+   "fieldname": "human_resources_cost",
+   "fieldtype": "Currency",
+   "label": "Total cost"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-25 02:11:38.200950",
+ "modified": "2024-07-25 12:19:47.804403",
  "modified_by": "Administrator",
  "module": "Halfware",
  "name": "chiffrage",
