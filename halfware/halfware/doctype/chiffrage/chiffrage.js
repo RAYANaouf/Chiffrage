@@ -1,8 +1,13 @@
 // Copyright (c) 2024, rayan aouf  and contributors
 // For license information, please see license.txt
 
-// frappe.ui.form.on("chiffrage", {
-// 	refresh(frm) {
+ frappe.ui.form.on('chiffrage', {
+//	refresh(frm) {
+//		frappe.msgprint("hello refresh")
+//	},
 
-// 	},
-// });
+//        enable : function(frm){
+//              frappe.msgprint("enable")
+//        }
+
+})

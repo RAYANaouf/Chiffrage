@@ -11,13 +11,13 @@
   "column_break_efkp",
   "end_date",
   "section_break_y4he",
-  "risk",
+  "risque_type",
   "column_break_cq8x",
-  "taux_de_risk",
+  "risque",
   "section_break_py3z",
-  "marge",
+  "marge_type",
   "column_break_kx9p",
-  "la_marge",
+  "marge",
   "tab_break_rdi3",
   "material",
   "materials_cost",
@@ -63,19 +63,8 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "risk",
-   "fieldtype": "Select",
-   "label": "Risk ",
-   "options": "Taux\nMantant"
-  },
-  {
    "fieldname": "column_break_cq8x",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "taux_de_risk",
-   "fieldtype": "Percent",
-   "label": "Taux de risk"
   },
   {
    "fieldname": "section_break_svga",
@@ -83,18 +72,12 @@
   },
   {
    "fieldname": "marge",
-   "fieldtype": "Select",
-   "label": "marge",
-   "options": "percent\nmantant"
+   "fieldtype": "Float",
+   "label": "Percentage"
   },
   {
    "fieldname": "column_break_kx9p",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "la_marge",
-   "fieldtype": "Currency",
-   "label": "la marge"
   },
   {
    "fieldname": "section_break_y4he",
@@ -137,7 +120,8 @@
   {
    "fieldname": "start_date",
    "fieldtype": "Data",
-   "label": "Start date"
+   "label": "Start date",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_efkp",
@@ -146,7 +130,8 @@
   {
    "fieldname": "end_date",
    "fieldtype": "Date",
-   "label": "End date"
+   "label": "End date",
+   "reqd": 1
   },
   {
    "fieldname": "section_break_py3z",
@@ -161,12 +146,29 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "risque_type",
+   "fieldtype": "Select",
+   "label": "Risque",
+   "options": "Taux\nMontant"
+  },
+  {
+   "fieldname": "risque",
+   "fieldtype": "Float",
+   "label": "Taux"
+  },
+  {
+   "fieldname": "marge_type",
+   "fieldtype": "Select",
+   "label": "marge",
+   "options": "Percent\nMontant"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-26 01:19:44.739695",
+ "modified": "2024-07-26 23:23:42.409969",
  "modified_by": "Administrator",
  "module": "Halfware",
  "name": "chiffrage",
