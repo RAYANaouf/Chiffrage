@@ -7,10 +7,14 @@
  "field_order": [
   "project",
   "section_break_0xj3",
+  "start_date",
+  "column_break_efkp",
+  "end_date",
+  "section_break_y4he",
   "risk",
   "column_break_cq8x",
   "taux_de_risk",
-  "section_break_y4he",
+  "section_break_py3z",
   "marge",
   "column_break_kx9p",
   "la_marge",
@@ -24,7 +28,8 @@
   "human_resources_tab",
   "human_resources",
   "human_resources_cost",
-  "section_break_svga"
+  "section_break_svga",
+  "amended_from"
  ],
  "fields": [
   {
@@ -128,12 +133,40 @@
    "fieldname": "human_resources_cost",
    "fieldtype": "Currency",
    "label": "Total cost"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Data",
+   "label": "Start date"
+  },
+  {
+   "fieldname": "column_break_efkp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End date"
+  },
+  {
+   "fieldname": "section_break_py3z",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "chiffrage",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-25 12:19:47.804403",
+ "modified": "2024-07-26 01:19:44.739695",
  "modified_by": "Administrator",
  "module": "Halfware",
  "name": "chiffrage",
