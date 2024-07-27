@@ -23,8 +23,11 @@
   "secteur_dactivit\u00e9_section",
   "chiffre_daffaire",
   "region_dactivite",
-  "section_break_lca4",
   "intervenant",
+  "section_break_lca4",
+  "equipment",
+  "services",
+  "software",
   "services_tab",
   "service",
   "services_cost_cost",
@@ -207,13 +210,29 @@
   },
   {
    "fieldname": "section_break_lca4",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Tech"
   },
   {
    "fieldname": "intervenant",
    "fieldtype": "Link",
    "label": "intervenant",
    "options": "Employee"
+  },
+  {
+   "fieldname": "equipment",
+   "fieldtype": "Text",
+   "label": "equipment"
+  },
+  {
+   "fieldname": "services",
+   "fieldtype": "Text",
+   "label": "services"
+  },
+  {
+   "fieldname": "software",
+   "fieldtype": "Text",
+   "label": "software"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -225,7 +244,7 @@
    "link_fieldname": "custom_chiffrage"
   }
  ],
- "modified": "2024-07-27 15:10:47.394980",
+ "modified": "2024-07-27 15:19:52.785046",
  "modified_by": "Administrator",
  "module": "Halfware",
  "name": "chiffrage",
