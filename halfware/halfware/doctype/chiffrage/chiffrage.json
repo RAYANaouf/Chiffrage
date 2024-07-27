@@ -19,6 +19,12 @@
   "marge_type",
   "column_break_kx9p",
   "marge",
+  "etude_dexictence_tab",
+  "secteur_dactivit\u00e9_section",
+  "chiffre_daffaire",
+  "region_dactivite",
+  "section_break_lca4",
+  "intervenant",
   "services_tab",
   "service",
   "services_cost_cost",
@@ -178,6 +184,36 @@
   {
    "fieldname": "section_break_9vxa",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "etude_dexictence_tab",
+   "fieldtype": "Tab Break",
+   "label": "Etude d'exictence"
+  },
+  {
+   "fieldname": "secteur_dactivit\u00e9_section",
+   "fieldtype": "Section Break",
+   "label": "secteur d'activit\u00e9"
+  },
+  {
+   "fieldname": "chiffre_daffaire",
+   "fieldtype": "Text",
+   "label": "chiffre d'affaire"
+  },
+  {
+   "fieldname": "region_dactivite",
+   "fieldtype": "Text",
+   "label": "region d'activite"
+  },
+  {
+   "fieldname": "section_break_lca4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "intervenant",
+   "fieldtype": "Link",
+   "label": "intervenant",
+   "options": "Employee"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -189,7 +225,7 @@
    "link_fieldname": "custom_chiffrage"
   }
  ],
- "modified": "2024-07-27 14:48:01.666852",
+ "modified": "2024-07-27 15:10:47.394980",
  "modified_by": "Administrator",
  "module": "Halfware",
  "name": "chiffrage",
