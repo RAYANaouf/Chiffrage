@@ -4,6 +4,9 @@ app_publisher = "rayan aouf "
 app_description = "halfware app"
 app_email = "rayanaouf1512@gmail.com"
 app_license = "mit"
+
+fixtures = ["Quotation-custom_chiffrage"]
+
 # required_apps = []
 
 # Includes in <head>
