@@ -5,7 +5,15 @@ app_description = "halfware app"
 app_email = "rayanaouf1512@gmail.com"
 app_license = "mit"
 
-fixtures = ["Quotation-custom_chiffrage"]
+
+fixtures = [
+    {
+        "dt": "Custom Field",
+        "filters": [["name", "in", ["Quotation-custom_chiffrage"]]]
+    }
+]
+
+
 
 # required_apps = []
 

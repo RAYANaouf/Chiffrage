@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class Testchiffrage(FrappeTestCase):
+class TestChiffrage(FrappeTestCase):
 	pass

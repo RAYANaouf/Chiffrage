@@ -5,7 +5,7 @@ import frappe
 from frappe.model.document import Document
 
 
-class chiffrage(Document):
+class Chiffrage(Document):
        pass
 
 #	def before_save(self):

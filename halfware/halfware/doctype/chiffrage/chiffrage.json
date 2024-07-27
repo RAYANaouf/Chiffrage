@@ -38,6 +38,8 @@
   "human_resources",
   "section_break_9vxa",
   "others",
+  "section_break_0crz",
+  "intervenant_resource",
   "section_break_svga",
   "human_resources_cost",
   "dashboard_tab",
@@ -233,6 +235,16 @@
    "fieldname": "software",
    "fieldtype": "Text",
    "label": "software"
+  },
+  {
+   "fieldname": "section_break_0crz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "intervenant_resource",
+   "fieldtype": "Link",
+   "label": "intervenant",
+   "options": "Employee"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -244,10 +256,10 @@
    "link_fieldname": "custom_chiffrage"
   }
  ],
- "modified": "2024-07-27 15:19:52.785046",
+ "modified": "2024-07-27 15:51:44.673497",
  "modified_by": "Administrator",
  "module": "Halfware",
- "name": "chiffrage",
+ "name": "Chiffrage",
  "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
