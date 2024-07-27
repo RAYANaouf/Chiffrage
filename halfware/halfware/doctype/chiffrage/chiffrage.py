@@ -6,16 +6,16 @@ from frappe.model.document import Document
 
 
 class chiffrage(Document):
+       pass
 
+#	def before_save(self):
+#            price = 0
+#            for hardware in self.get("hardware"):
+#                hardware.before_save()
+#                price += hardware.getTotalPrice()
 
-	def before_save(self):
-            price = 0
-            for hardware in self.get("hardware"):
-                hardware.before_save()
-                price += hardware.getTotalPrice()
+#            for service  in self.get("service"):
+#                service.before_save()
+#                price += service.getTotalPrice()
 
-            for service  in self.get("service"):
-                service.before_save()
-                price += service.getTotalPrice()
-
-            self.estimated_cost = price
+#            self.estimated_cost = price

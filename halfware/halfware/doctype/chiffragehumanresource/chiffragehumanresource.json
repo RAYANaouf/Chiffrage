@@ -8,6 +8,8 @@
  "field_order": [
   "job",
   "column_break_prbw",
+  "task",
+  "column_break_iyow",
   "working_hours_estimation",
   "section_break_hkha",
   "salary_by_hour",
@@ -51,12 +53,24 @@
   {
    "fieldname": "column_break_oj2z",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "task",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "task",
+   "options": "Task",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_iyow",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-07-25 12:33:19.360259",
+ "modified": "2024-07-27 14:41:00.300513",
  "modified_by": "Administrator",
  "module": "Halfware",
  "name": "ChiffrageHumanResource",

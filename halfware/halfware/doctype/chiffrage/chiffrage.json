@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "chiff.###",
  "creation": "2024-07-18 14:53:30.689158",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -18,17 +19,19 @@
   "marge_type",
   "column_break_kx9p",
   "marge",
-  "tab_break_rdi3",
-  "material",
-  "materials_cost",
   "services_tab",
   "service",
   "services_cost_cost",
-  "section_break_8u7c",
+  "tab_break_rdi3",
+  "material",
+  "materials_cost",
   "human_resources_tab",
   "human_resources",
-  "human_resources_cost",
+  "section_break_9vxa",
+  "others",
   "section_break_svga",
+  "human_resources_cost",
+  "dashboard_tab",
   "amended_from"
  ],
  "fields": [
@@ -49,13 +52,13 @@
   {
    "fieldname": "material",
    "fieldtype": "Table",
-   "label": "Material",
+   "label": "Equipement",
    "options": "ChiffrageHardware"
   },
   {
    "fieldname": "human_resources",
    "fieldtype": "Table",
-   "label": "Human Resources",
+   "label": "Resource humain",
    "options": "ChiffrageHumanResource"
   },
   {
@@ -84,28 +87,23 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "section_break_8u7c",
-   "fieldtype": "Section Break"
-  },
-  {
    "fieldname": "tab_break_rdi3",
    "fieldtype": "Tab Break",
-   "label": "Materials"
+   "label": "equipement"
   },
   {
    "fieldname": "services_tab",
    "fieldtype": "Tab Break",
-   "label": "Services"
+   "label": "Services & abonnement"
   },
   {
    "fieldname": "human_resources_tab",
    "fieldtype": "Tab Break",
-   "label": "Human Resources"
+   "label": "Resource "
   },
   {
    "fieldname": "materials_cost",
    "fieldtype": "Currency",
-   "hidden": 1,
    "label": "Total cost"
   },
   {
@@ -120,7 +118,7 @@
   },
   {
    "fieldname": "start_date",
-   "fieldtype": "Data",
+   "fieldtype": "Date",
    "label": "Start date",
    "reqd": 1
   },
@@ -164,15 +162,38 @@
    "fieldtype": "Select",
    "label": "marge",
    "options": "Percent\nMontant"
+  },
+  {
+   "fieldname": "dashboard_tab",
+   "fieldtype": "Tab Break",
+   "label": "dashboard",
+   "show_dashboard": 1
+  },
+  {
+   "fieldname": "others",
+   "fieldtype": "Table",
+   "label": "Others",
+   "options": "chiffrage_others"
+  },
+  {
+   "fieldname": "section_break_9vxa",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [],
- "modified": "2024-07-27 01:01:24.090776",
+ "links": [
+  {
+   "group": "lien",
+   "link_doctype": "Quotation",
+   "link_fieldname": "custom_chiffrage"
+  }
+ ],
+ "modified": "2024-07-27 14:48:01.666852",
  "modified_by": "Administrator",
  "module": "Halfware",
  "name": "chiffrage",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {

@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"JZRrg-2f_h\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">halfware</span>\",\"col\":12}},{\"id\":\"WwPMSt6JhZ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Chiffrage\",\"col\":3}}]",
+ "content": "[{\"id\":\"JZRrg-2f_h\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">halfware</span>\",\"col\":12}},{\"id\":\"d24nl6dDGg\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"chiffrage\",\"col\":3}},{\"id\":\"KyDbLCseL9\",\"type\":\"card\",\"data\":{\"card_name\":\"Projts\",\"col\":4}}]",
  "creation": "2024-07-21 12:12:57.323511",
  "custom_blocks": [],
  "docstatus": 0,
@@ -11,8 +11,38 @@
  "indicator_color": "green",
  "is_hidden": 0,
  "label": "halfware",
- "links": [],
- "modified": "2024-07-21 12:17:38.271344",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Projts",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Project",
+   "link_count": 0,
+   "link_to": "Project",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "chiffrage",
+   "link_count": 0,
+   "link_to": "chiffrage",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2024-07-27 13:47:21.985765",
  "modified_by": "Administrator",
  "module": "Halfware",
  "name": "halfware",
@@ -21,8 +51,21 @@
  "parent_page": "",
  "public": 1,
  "quick_lists": [],
- "roles": [],
+ "roles": [
+  {
+   "role": "All"
+  }
+ ],
  "sequence_id": 28.0,
- "shortcuts": [],
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "chiffrage",
+   "link_to": "chiffrage",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
  "title": "halfware"
 }

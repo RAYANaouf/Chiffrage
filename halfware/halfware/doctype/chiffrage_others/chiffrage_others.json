@@ -1,0 +1,46 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "other.##",
+ "creation": "2024-07-27 14:44:58.949291",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "desination",
+  "section_break_hgf3",
+  "cost"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_hgf3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "desination",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "desination",
+   "options": "Designation"
+  },
+  {
+   "fieldname": "cost",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "cost"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-07-27 14:49:05.055133",
+ "modified_by": "Administrator",
+ "module": "Halfware",
+ "name": "chiffrage_others",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

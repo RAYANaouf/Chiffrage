@@ -6,10 +6,10 @@ from frappe.model.document import Document
 
 
 class ChiffrageService(Document):
+	pass
+#        def before_save(self):
+#            self.total_price = self.price_by_month * self.months
 
-        def before_save(self):
-            self.total_price = self.price_by_month * self.months
 
-
-        def getTotalPrice(self):
-            return self.total_price
+#        def getTotalPrice(self):
+#            return self.total_price
