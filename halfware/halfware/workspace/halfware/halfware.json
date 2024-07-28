@@ -1,71 +1,67 @@
 {
  "charts": [],
- "content": "[{\"id\":\"JZRrg-2f_h\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">halfware</span>\",\"col\":12}},{\"id\":\"d24nl6dDGg\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"chiffrage\",\"col\":3}},{\"id\":\"KyDbLCseL9\",\"type\":\"card\",\"data\":{\"card_name\":\"Projts\",\"col\":4}}]",
- "creation": "2024-07-21 12:12:57.323511",
- "custom_blocks": [],
+ "content": "[{\"id\":\"PlxGULpMLm\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Halfware</span>\",\"col\":12}},{\"id\":\"C89afdcdc1\",\"type\":\"spacer\",\"data\":{\"col\":3}},{\"id\":\"ENiTKFjKmt\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"my custom block\",\"col\":6}},{\"id\":\"NrPvSifE5O\",\"type\":\"spacer\",\"data\":{\"col\":3}},{\"id\":\"yjmFgZqBuP\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"chiffrage\",\"col\":3}},{\"id\":\"2S1GKNrB4T\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"project\",\"col\":3}},{\"id\":\"-dPU0Fg7ts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"project template\",\"col\":3}},{\"id\":\"t3qxnw8_ow\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"project type\",\"col\":3}}]",
+ "creation": "2024-07-28 12:30:14.681167",
+ "custom_blocks": [
+  {
+   "custom_block_name": "my custom block",
+   "label": "my custom block"
+  }
+ ],
  "docstatus": 0,
  "doctype": "Workspace",
  "for_user": "",
  "hide_custom": 0,
- "idx": 0,
- "indicator_color": "green",
+ "icon": "milestone",
+ "idx": 1,
+ "indicator_color": "",
  "is_hidden": 0,
- "label": "halfware",
- "links": [
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Projts",
-   "link_count": 2,
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Project",
-   "link_count": 0,
-   "link_to": "Project",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "chiffrage",
-   "link_count": 0,
-   "link_to": "chiffrage",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  }
- ],
- "modified": "2024-07-27 13:47:21.985765",
+ "label": "Halfware",
+ "links": [],
+ "modified": "2024-07-28 18:45:14.911971",
  "modified_by": "Administrator",
  "module": "Halfware",
- "name": "halfware",
+ "name": "Halfware",
  "number_cards": [],
  "owner": "Administrator",
  "parent_page": "",
  "public": 1,
  "quick_lists": [],
- "roles": [
-  {
-   "role": "All"
-  }
- ],
- "sequence_id": 28.0,
+ "roles": [],
+ "sequence_id": 32.0,
  "shortcuts": [
   {
    "color": "Grey",
    "doc_view": "List",
    "label": "chiffrage",
-   "link_to": "chiffrage",
+   "link_to": "Chiffrage",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "project",
+   "link_to": "Project",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "project template",
+   "link_to": "Project Template",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "project type",
+   "link_to": "Project Type",
    "stats_filter": "[]",
    "type": "DocType"
   }
  ],
- "title": "halfware"
+ "title": "Halfware"
 }
