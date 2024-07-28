@@ -9,14 +9,15 @@ frappe.ui.form.on('Chiffrage', {
 	refresh(frm) {
 // 		frappe.msgprint("hello refresh")
 	},
-	
+
+
 	onload : function (frm){
 	   // frappe.msgprint("hello onload")
 	},
-	
-	
+
+
 	marge_type : function(frm){
-	    
+
 	    if(frm.doc.marge_type == "Percent"){
 	       frm.toggle_display('marge_percentage',true)
 	       frm.toggle_display('marge_montant',false)
@@ -25,15 +26,13 @@ frappe.ui.form.on('Chiffrage', {
 	       frm.toggle_display('marge_percentage',false)
 	       frm.toggle_display('marge_montant',true)
 	    }
-	    
-	    
+
+
 	},
-	
-	
-	
-	
+
+
 	risque_type : function(frm){
-	    
+
 	    if(frm.doc.risque_type == "Taux"){
 	       frm.toggle_display('risque_taux',true)
 	       frm.toggle_display('risque_montant',false)
@@ -42,19 +41,28 @@ frappe.ui.form.on('Chiffrage', {
 	       frm.toggle_display('risque_taux',false)
 	       frm.toggle_display('risque_montant',true)
 	    }
-	    
+
 	},
-	
-	
-	
-	    
+
+
+        //services.cost : function(frm){
+
+        // frm.msgprint("hellllooooo")
+
+        //},
+
+        chiffre_daffaire_desc : function(frm){
+            frm.msgprint("chiffre d'affaire")
+        },
+
+
     // material_on_form_rendered(frm) { // "links" is the name of the table field in ToDo, "_add" is the event
-    
+
     //     frappe.msgprint('A row has been added to the mterial table 🎉 ');
-        
+
     // }
-    
-    
+
+
 })
 
 
@@ -88,15 +96,22 @@ frappe.ui.form.on('ChiffrageHardware', { // The child table is defined in a Doct
 //////////////////// chiffrage service  //////////////////////////////////////
 
 frappe.ui.form.on('ChiffrageService',{
-    
-    service_add(frm){
-        frm.toggle_display('services_cost_cost',true)
+
+    services_add(frm){
+        frm.toggle_display('services_cost_cost',true);
+        calculate_total_service_cost(frm);
     },
-    
-    service_remove(frm){
-        frm.toggle_display('services_cost_cost',false)
+
+    services_remove(frm){
+        frm.toggle_display('services_cost_cost',false);
+        calculate_total_service_cost(frm);
+    },
+
+    cost : function(frm,cdt,cdn){
+       console.log('cost field change');
+       calculate_total_services_cost(frm);
     }
-    
+
 })
 
 ///////////////////// human resources ////////////////////
@@ -111,3 +126,20 @@ frappe.ui.form.on('ChiffrageHumanResource',{
         frm.toggle_display('human_resources_cost',false)
     }
 })
+
+
+
+////////////////////// services ////////////////////////////
+
+
+function calculate_total_service_cost(frm) {
+
+    let total_cost = 0;
+
+    frm.doc.services.forEach(service => {
+        total_cost += service.cost || 0;
+    });
+
+    frm.set_value('services_cost_cost', total_cost);
+
+}
