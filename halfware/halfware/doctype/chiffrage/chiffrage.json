@@ -14,11 +14,13 @@
   "section_break_y4he",
   "risque_type",
   "column_break_cq8x",
-  "risque",
+  "risque_taux",
+  "risque_montant",
   "section_break_py3z",
   "marge_type",
   "column_break_kx9p",
-  "marge",
+  "marge_percentage",
+  "marge_montant",
   "etude_dexictence_tab",
   "secteur_dactivit\u00e9_section",
   "chiffre_daffaire",
@@ -85,11 +87,6 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "marge",
-   "fieldtype": "Float",
-   "label": "Percentage"
-  },
-  {
    "fieldname": "column_break_kx9p",
    "fieldtype": "Column Break"
   },
@@ -152,7 +149,7 @@
    "fieldtype": "Link",
    "label": "Amended From",
    "no_copy": 1,
-   "options": "chiffrage",
+   "options": "Chiffrage",
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
@@ -162,11 +159,6 @@
    "fieldtype": "Select",
    "label": "Risque",
    "options": "Taux\nMontant"
-  },
-  {
-   "fieldname": "risque",
-   "fieldtype": "Float",
-   "label": "Taux"
   },
   {
    "fieldname": "marge_type",
@@ -245,6 +237,32 @@
    "fieldtype": "Link",
    "label": "intervenant",
    "options": "Employee"
+  },
+  {
+   "default": "0",
+   "fieldname": "risque_taux",
+   "fieldtype": "Float",
+   "label": "Taux"
+  },
+  {
+   "default": "0",
+   "fieldname": "risque_montant",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "montant"
+  },
+  {
+   "default": "0",
+   "fieldname": "marge_percentage",
+   "fieldtype": "Float",
+   "label": "Percentage"
+  },
+  {
+   "default": "0",
+   "fieldname": "marge_montant",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "montant"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -256,7 +274,7 @@
    "link_fieldname": "custom_chiffrage"
   }
  ],
- "modified": "2024-07-27 15:51:44.673497",
+ "modified": "2024-07-28 19:18:22.747848",
  "modified_by": "Administrator",
  "module": "Halfware",
  "name": "Chiffrage",
