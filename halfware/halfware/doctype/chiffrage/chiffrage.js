@@ -6,17 +6,18 @@
 
 frappe.ui.form.on('Chiffrage', {
 
-	refresh(frm) {
+//	refresh(frm) {
 // 		frappe.msgprint("hello refresh")
-	},
+//	},
 
 
-	onload : function (frm){
-	   // frappe.msgprint("hello onload")
-	},
-
+        //onload : function (frm){
+	  //  frappe.msgprint("hello onload")
+	//},
 
 	marge_type : function(frm){
+
+            frappe.msgprint("hello");
 
 	    if(frm.doc.marge_type == "Percent"){
 	       frm.toggle_display('marge_percentage',true)
@@ -33,6 +34,8 @@ frappe.ui.form.on('Chiffrage', {
 
 	risque_type : function(frm){
 
+            //frm.msgprint("hello");
+
 	    if(frm.doc.risque_type == "Taux"){
 	       frm.toggle_display('risque_taux',true)
 	       frm.toggle_display('risque_montant',false)
@@ -45,15 +48,17 @@ frappe.ui.form.on('Chiffrage', {
 	},
 
 
-        //services.cost : function(frm){
-
-        // frm.msgprint("hellllooooo")
-
+        //services_cost_cost : function(frm){
+        //	frappe.msgprint("hello world");
         //},
-
-        chiffre_daffaire_desc : function(frm){
-            frm.msgprint("chiffre d'affaire")
+        
+        'services.*' : function(frm){
+         frappe.msgprint("hellllooooo");
         },
+
+        //chiffre_daffaire_desc : function(frm){
+        //    frappe.msgprint("chiffre d'affaire");
+        //},
 
 
     // material_on_form_rendered(frm) { // "links" is the name of the table field in ToDo, "_add" is the event
@@ -67,7 +72,7 @@ frappe.ui.form.on('Chiffrage', {
 
 
 
-
+////////////////////////////////////////////////////////////////////////////////////
 
 // // General approach to catch all child table row additions
 // frappe.ui.form.on('chiffrage', 'child_table_material_add', function(frm, cdt, cdn) {
@@ -80,16 +85,20 @@ frappe.ui.form.on('Chiffrage', {
 
 
 frappe.ui.form.on('ChiffrageHardware', { // The child table is defined in a DoctType called "Dynamic Link"
-    
-    
-    material_add(frm) {
-        frm.toggle_display('materials_cost',true)
+    materials_remove(frm){
+        calculate_total_hardware_cost(frm);
     },
-    
-    material_remove(frm){
-        frm.toggle_display('materials_cost',false)
-    }
-    
+
+    quantity: function(frm,cdt,cdn){
+	let c = locals[cdt][cdn];
+	frappe.model.set_value(cdt,cdn, "total_cost",c.unit_price * c.quantity);
+        calculate_total_hardware_cost(frm);
+    },
+
+    unit_price(frm){
+        calculate_total_hardware_cost(frm);
+    },
+
 });
 
 
@@ -98,19 +107,22 @@ frappe.ui.form.on('ChiffrageHardware', { // The child table is defined in a Doct
 frappe.ui.form.on('ChiffrageService',{
 
     services_add(frm){
-        frm.toggle_display('services_cost_cost',true);
-        calculate_total_service_cost(frm);
+        //frm.toggle_display('services_cost_cost',true);
+        calculate_total_service_cost(frm)
     },
+    
 
     services_remove(frm){
-        frm.toggle_display('services_cost_cost',false);
+        //frm.toggle_display('services_cost_cost',false);
         calculate_total_service_cost(frm);
     },
 
-    cost : function(frm,cdt,cdn){
+    cost(frm){
        console.log('cost field change');
-       calculate_total_services_cost(frm);
-    }
+       calculate_total_service_cost(frm);
+    },
+
+    
 
 })
 
@@ -129,7 +141,8 @@ frappe.ui.form.on('ChiffrageHumanResource',{
 
 
 
-////////////////////// services ////////////////////////////
+////////////////////// functions   ////////////////////////////
+
 
 
 function calculate_total_service_cost(frm) {
@@ -137,9 +150,24 @@ function calculate_total_service_cost(frm) {
     let total_cost = 0;
 
     frm.doc.services.forEach(service => {
-        total_cost += service.cost || 0;
+        total_cost += flt(service.cost);
     });
 
     frm.set_value('services_cost_cost', total_cost);
+
+}
+
+
+function calculate_total_hardware_cost(frm){
+
+      let total_cost = 0; 
+
+      frm.doc.materials.forEach(material => {
+
+        total_cost +=  flt(material.total_cost);
+
+      });
+
+      frm.set_value( "materials_cost" , total_cost);
 
 }

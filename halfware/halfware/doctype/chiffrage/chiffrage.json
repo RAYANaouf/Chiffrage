@@ -23,25 +23,30 @@
   "marge_montant",
   "etude_dexictence_tab",
   "secteur_dactivit\u00e9_section",
+  "intervenant1",
+  "section_break_ossg",
   "chiffre_daffaire_desc",
+  "column_break_p3jp",
   "region_dactivite__desc",
-  "intervenant",
   "section_break_lca4",
+  "intervenant2",
+  "section_break_fegu",
   "equipment_desc",
+  "column_break_o6ad",
   "services_desc",
+  "column_break_axsj",
   "software_desc",
+  "section_break_xpuq",
   "services_tab",
   "services",
   "services_cost_cost",
   "tab_break_rdi3",
-  "material",
+  "materials",
   "materials_cost",
   "human_resources_tab",
   "human_resources",
   "section_break_9vxa",
   "others",
-  "section_break_0crz",
-  "intervenant_resource",
   "section_break_svga",
   "human_resources_cost",
   "dashboard_tab",
@@ -55,12 +60,6 @@
    "label": "Project",
    "options": "Project",
    "reqd": 1
-  },
-  {
-   "fieldname": "material",
-   "fieldtype": "Table",
-   "label": "Equipement",
-   "options": "ChiffrageHardware"
   },
   {
    "fieldname": "human_resources",
@@ -91,7 +90,7 @@
   {
    "fieldname": "tab_break_rdi3",
    "fieldtype": "Tab Break",
-   "label": "equipement"
+   "label": "Equipement"
   },
   {
    "fieldname": "services_tab",
@@ -157,13 +156,13 @@
   {
    "fieldname": "marge_type",
    "fieldtype": "Select",
-   "label": "marge",
+   "label": "Marge",
    "options": "Percent\nMontant"
   },
   {
    "fieldname": "dashboard_tab",
    "fieldtype": "Tab Break",
-   "label": "dashboard",
+   "label": "Dashboard",
    "show_dashboard": 1
   },
   {
@@ -184,34 +183,18 @@
   {
    "fieldname": "secteur_dactivit\u00e9_section",
    "fieldtype": "Section Break",
-   "label": "secteur d'activit\u00e9"
+   "label": "Commerciale"
   },
   {
    "fieldname": "section_break_lca4",
    "fieldtype": "Section Break",
-   "label": "Tech"
-  },
-  {
-   "fieldname": "intervenant",
-   "fieldtype": "Link",
-   "label": "intervenant",
-   "options": "Employee"
+   "label": "Technique"
   },
   {
    "fieldname": "services",
    "fieldtype": "Table",
    "label": "Services",
    "options": "ChiffrageService"
-  },
-  {
-   "fieldname": "section_break_0crz",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "intervenant_resource",
-   "fieldtype": "Link",
-   "label": "intervenant",
-   "options": "Employee"
   },
   {
    "default": "0",
@@ -224,7 +207,7 @@
    "fieldname": "risque_montant",
    "fieldtype": "Float",
    "hidden": 1,
-   "label": "montant"
+   "label": "Montant"
   },
   {
    "default": "0",
@@ -237,32 +220,74 @@
    "fieldname": "marge_montant",
    "fieldtype": "Float",
    "hidden": 1,
-   "label": "montant"
+   "label": "Montant"
   },
   {
    "fieldname": "chiffre_daffaire_desc",
    "fieldtype": "Text",
-   "label": "chiffre d'affaire"
+   "label": "Chiffre d'affaire"
   },
   {
    "fieldname": "region_dactivite__desc",
    "fieldtype": "Text",
-   "label": "region d'activite"
+   "label": "Region d'activite"
   },
   {
    "fieldname": "equipment_desc",
    "fieldtype": "Text",
-   "label": "equipment"
+   "label": "Equipment"
   },
   {
    "fieldname": "services_desc",
    "fieldtype": "Text",
-   "label": "services"
+   "label": "Services"
   },
   {
    "fieldname": "software_desc",
    "fieldtype": "Text",
-   "label": "software"
+   "label": "Software"
+  },
+  {
+   "fieldname": "intervenant1",
+   "fieldtype": "Link",
+   "label": "Intervenant",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "intervenant2",
+   "fieldtype": "Link",
+   "label": "Intervenant",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "column_break_p3jp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_ossg",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_fegu",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_o6ad",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_axsj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_xpuq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "materials",
+   "fieldtype": "Table",
+   "label": "Equipement",
+   "options": "ChiffrageHardware"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -274,7 +299,7 @@
    "link_fieldname": "custom_chiffrage"
   }
  ],
- "modified": "2024-07-28 19:43:09.210596",
+ "modified": "2024-07-29 16:03:14.649752",
  "modified_by": "Administrator",
  "module": "Halfware",
  "name": "Chiffrage",
@@ -297,5 +322,14 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [
+  {
+   "color": "Green",
+   "title": "Accpted"
+  },
+  {
+   "color": "Gray",
+   "title": "Rejected"
+  }
+ ]
 }
