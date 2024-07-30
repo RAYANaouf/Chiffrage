@@ -6,14 +6,6 @@
 
 frappe.ui.form.on('Chiffrage', {
 
-//	refresh(frm) {
-// 		frappe.msgprint("hello refresh")
-//	},
-
-
-        //onload : function (frm){
-	  //  frappe.msgprint("hello onload")
-	//},
 
 	marge_type : function(frm){
 
@@ -46,19 +38,6 @@ frappe.ui.form.on('Chiffrage', {
 	    }
 
 	},
-
-
-        //services_cost_cost : function(frm){
-        //	frappe.msgprint("hello world");
-        //},
-        
-        'services.*' : function(frm){
-         frappe.msgprint("hellllooooo");
-        },
-
-        //chiffre_daffaire_desc : function(frm){
-        //    frappe.msgprint("chiffre d'affaire");
-        //},
 
 
     // material_on_form_rendered(frm) { // "links" is the name of the table field in ToDo, "_add" is the event
@@ -95,7 +74,9 @@ frappe.ui.form.on('ChiffrageHardware', { // The child table is defined in a Doct
         calculate_total_hardware_cost(frm);
     },
 
-    unit_price(frm){
+    unit_price: function(frm,cdt,cdn){
+        let c = locals[cdt][cdn];
+        frappe.model.set_value(cdt,cdn,"total_cost",flt(c.unit_price) * flt(c.quantity) );
         calculate_total_hardware_cost(frm);
     },
 
@@ -110,7 +91,7 @@ frappe.ui.form.on('ChiffrageService',{
         //frm.toggle_display('services_cost_cost',true);
         calculate_total_service_cost(frm)
     },
-    
+
 
     services_remove(frm){
         //frm.toggle_display('services_cost_cost',false);
@@ -118,8 +99,7 @@ frappe.ui.form.on('ChiffrageService',{
     },
 
     cost(frm){
-       console.log('cost field change');
-       calculate_total_service_cost(frm);
+       calculate_total_service_cost(frm );
     },
 
     
@@ -128,18 +108,40 @@ frappe.ui.form.on('ChiffrageService',{
 
 ///////////////////// human resources ////////////////////
 
+
 frappe.ui.form.on('ChiffrageHumanResource',{
-    
-    human_resources_add(frm){
-        frm.toggle_display('human_resources_cost',true)
-    },
-    
+
+   human_resources_add(frm){
+	frm.toggle_display('human_resources_cost' , false);
+   },
+
     human_resources_remove(frm){
-        frm.toggle_display('human_resources_cost',false)
-    }
+        frm.toggle_display('human_resources_cost',false);
+    },
+
+    salary_by_hour : function(frm , cdt , cdn ){
+    	let c = locals[cdt][cdn];
+        frappe.model.set_value(cdt , cdn , "total_cost" , flt(c.salary_by_hour) * flt(c.working_hours_estimation) )
+        calculate_total_resource_cost(frm);
+    },
+
+    working_hours_estimation : function(frm ,cdt ,cdn){
+       let c = locals[cdt][cdn]
+       frappe.model.set_value(cdt , cdn , "total_cost" , flt(c.salary_by_hour) * flt(c.working_hours_estimation))
+       calculate_total_resource_cost(frm);
+   },
+
 })
 
 
+/////////////////////  others   ////////////////////
+
+
+frappe.ui.form.on('chiffrage_others' , {
+	cost : function(frm , cdt , cdn ){
+		calculate_total_resource_cost(frm);
+        }
+})
 
 ////////////////////// functions   ////////////////////////////
 
@@ -170,4 +172,23 @@ function calculate_total_hardware_cost(frm){
 
       frm.set_value( "materials_cost" , total_cost);
 
+}
+
+function calculate_total_resource_cost(frm){
+
+	let total_cost = 0 ;
+
+        frm.doc.human_resources.forEach(resource => {
+
+		total_cost += flt(resource.total_cost);
+
+        });
+
+        frm.doc.others.forEach(other => {
+
+        	total_cost += flt(other.cost);
+
+        });
+
+	frm.set_value( "human_resources_cost" , total_cost);
 }
