@@ -104,17 +104,17 @@
   },
   {
    "fieldname": "materials_cost",
-   "fieldtype": "Currency",
+   "fieldtype": "Read Only",
    "label": "Total cost"
   },
   {
    "fieldname": "services_cost_cost",
-   "fieldtype": "Currency",
+   "fieldtype": "Read Only",
    "label": "Total cost"
   },
   {
    "fieldname": "human_resources_cost",
-   "fieldtype": "Currency",
+   "fieldtype": "Read Only",
    "label": "Total cost"
   },
   {
@@ -299,7 +299,7 @@
    "link_fieldname": "custom_chiffrage"
   }
  ],
- "modified": "2024-07-29 16:03:14.649752",
+ "modified": "2024-07-31 00:27:29.891509",
  "modified_by": "Administrator",
  "module": "Halfware",
  "name": "Chiffrage",

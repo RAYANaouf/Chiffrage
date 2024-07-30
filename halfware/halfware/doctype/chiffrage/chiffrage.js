@@ -112,11 +112,11 @@ frappe.ui.form.on('ChiffrageService',{
 frappe.ui.form.on('ChiffrageHumanResource',{
 
    human_resources_add(frm){
-	frm.toggle_display('human_resources_cost' , false);
+	human_resources_cost(frm);
    },
 
     human_resources_remove(frm){
-        frm.toggle_display('human_resources_cost',false);
+        human_resources_cost(frm);
     },
 
     salary_by_hour : function(frm , cdt , cdn ){
