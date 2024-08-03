@@ -16,10 +16,10 @@ fixtures = [
         "dt": "Workflow",
         "filters": [["document_type", "in", ["Project"]]]
     },
-    {
-        "dt": "Custom Field",
-        "filters": [["dt", "=", "Project"]]
-    }
+#    {
+#        "dt": "Custom Field",
+#        "filters": [["dt", "=", "Project"]]
+#    }
 ]
 
 
