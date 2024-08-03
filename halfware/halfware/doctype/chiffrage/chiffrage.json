@@ -21,6 +21,8 @@
   "column_break_kx9p",
   "marge_percentage",
   "marge_montant",
+  "section_break_gz9a",
+  "total_project_cost",
   "etude_dexictence_tab",
   "secteur_dactivit\u00e9_section",
   "intervenant1",
@@ -288,6 +290,16 @@
    "fieldtype": "Table",
    "label": "Equipement",
    "options": "ChiffrageHardware"
+  },
+  {
+   "fieldname": "section_break_gz9a",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_project_cost",
+   "fieldtype": "Read Only",
+   "in_list_view": 1,
+   "label": "Total Project Cost"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -299,7 +311,7 @@
    "link_fieldname": "custom_chiffrage"
   }
  ],
- "modified": "2024-07-31 00:27:29.891509",
+ "modified": "2024-08-03 13:47:32.916322",
  "modified_by": "Administrator",
  "module": "Halfware",
  "name": "Chiffrage",

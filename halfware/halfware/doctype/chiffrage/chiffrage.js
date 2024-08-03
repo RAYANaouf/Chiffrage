@@ -39,6 +39,24 @@ frappe.ui.form.on('Chiffrage', {
 
 	},
 
+	services_cost_cost : function(frm){
+
+		calculate_total_project_cost(frm);
+
+	},
+
+	materials_cost : function(frm){
+
+                calculate_total_project_cost(frm);
+
+        },
+
+        human_resources_cost : function(frm){
+
+		calculate_total_project_cost(frm);
+
+	},
+
 
     // material_on_form_rendered(frm) { // "links" is the name of the table field in ToDo, "_add" is the event
 
@@ -191,4 +209,13 @@ function calculate_total_resource_cost(frm){
         });
 
 	frm.set_value( "human_resources_cost" , total_cost);
+}
+
+function calculate_total_project_cost(frm){
+
+	let total_cost = 0 ;
+
+	total_cost = flt(frm.doc.services_cost_cost) + flt(frm.doc.materials_cost) + flt(frm.doc.human_resources_cost)
+
+	frm.set_value("total_project_cost" , total_cost);
 }
