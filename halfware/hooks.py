@@ -6,13 +6,21 @@ app_email = "rayanaouf1512@gmail.com"
 app_license = "mit"
 
 
+
 fixtures = [
     {
         "dt": "Custom Field",
         "filters": [["name", "in", ["Quotation-custom_chiffrage"]]]
+    },
+    {
+        "dt": "Workflow",
+        "filters": [["document_type", "in", ["Project"]]]
+    },
+    {
+        "dt": "Custom Field",
+        "filters": [["dt", "=", "Project"]]
     }
 ]
-
 
 
 # required_apps = []
