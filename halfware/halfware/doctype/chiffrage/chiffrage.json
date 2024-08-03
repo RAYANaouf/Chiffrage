@@ -311,7 +311,7 @@
    "link_fieldname": "custom_chiffrage"
   }
  ],
- "modified": "2024-08-03 13:47:32.916322",
+ "modified": "2024-08-03 14:25:41.333460",
  "modified_by": "Administrator",
  "module": "Halfware",
  "name": "Chiffrage",
@@ -336,12 +336,36 @@
  "sort_order": "DESC",
  "states": [
   {
-   "color": "Green",
-   "title": "Accpted"
+   "color": "Light Blue",
+   "title": "Etude"
+  },
+  {
+   "color": "Blue",
+   "title": "Command\u00e9"
+  },
+  {
+   "color": "Blue",
+   "title": "En cours"
+  },
+  {
+   "color": "Orange",
+   "title": "Test"
+  },
+  {
+   "color": "Yellow",
+   "title": "Livraison"
+  },
+  {
+   "color": "Cyan",
+   "title": "Facturation"
   },
   {
    "color": "Gray",
-   "title": "Rejected"
+   "title": "Echu\u00e9"
+  },
+  {
+   "color": "Green",
+   "title": "Factur\u00e9 et clos"
   }
  ]
 }
