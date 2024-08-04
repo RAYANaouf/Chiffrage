@@ -16,6 +16,14 @@ fixtures = [
         "dt": "Workflow",
         "filters": [["document_type", "in", ["Project"]]]
     },
+    {
+        "dt": "Workflow Action",
+        "filters": [["workflow_name", "in", ["Project Flow"]]]
+    },
+    {
+        "dt": "Workflow State",
+        "filters": [["workflow_name", "in", ["Project Flow"]]]
+    }
 #    {
 #        "dt": "Custom Field",
 #        "filters": [["dt", "=", "Project"]]
