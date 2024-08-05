@@ -51,6 +51,10 @@
   "others",
   "section_break_svga",
   "human_resources_cost",
+  "additional_bills_tab",
+  "bills",
+  "additional_bills_cost",
+  "section_break_lkf2",
   "dashboard_tab",
   "amended_from"
  ],
@@ -92,17 +96,17 @@
   {
    "fieldname": "tab_break_rdi3",
    "fieldtype": "Tab Break",
-   "label": "Equipement"
+   "label": "Bill of Materials"
   },
   {
    "fieldname": "services_tab",
    "fieldtype": "Tab Break",
-   "label": "Services & abonnement"
+   "label": "Bill of Services "
   },
   {
    "fieldname": "human_resources_tab",
    "fieldtype": "Tab Break",
-   "label": "Resource "
+   "label": "Bill of  Resources "
   },
   {
    "fieldname": "materials_cost",
@@ -300,6 +304,26 @@
    "fieldtype": "Read Only",
    "in_list_view": 1,
    "label": "Total Project Cost"
+  },
+  {
+   "fieldname": "additional_bills_tab",
+   "fieldtype": "Tab Break",
+   "label": "Additional Bills"
+  },
+  {
+   "fieldname": "bills",
+   "fieldtype": "Table",
+   "label": "Bills",
+   "options": "Chiffrage_Additional_Bills"
+  },
+  {
+   "fieldname": "section_break_lkf2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "additional_bills_cost",
+   "fieldtype": "Read Only",
+   "label": "Total Cost"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -311,7 +335,7 @@
    "link_fieldname": "custom_chiffrage"
   }
  ],
- "modified": "2024-08-03 14:25:41.333460",
+ "modified": "2024-08-05 16:07:09.483779",
  "modified_by": "Administrator",
  "module": "Halfware",
  "name": "Chiffrage",

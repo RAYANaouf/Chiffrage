@@ -1,0 +1,57 @@
+
+[data-route="query-report/project analytics"] div.dt-cell__content[title="En Test"]{
+    color : orange;
+}
+
+[data-route="query-report/project analytics"] div.dt-cell__content[title="En Cours"]{
+    color : blue;
+}
+
+[data-route="query-report/project analytics"]   div.dt-cell__content[title="Etude"]{
+    color : black;
+}
+
+[data-route="query-report/project analytics"]  div.dt-cell__content[title="Echoué"]{
+    color : red;
+}
+
+[data-route="query-report/project analytics"]  div.dt-cell__content[title="Clos"]{
+    color : green;
+}
+
+[data-route="query-report/project analytics"]   div.dt-cell__content[title="Facturé"]{
+    color : green;
+}
+[data-route="query-report/project analytics"] div.dt-cell__content[title="Commandé"]{
+    color : blue;
+}
+[data-route="query-report/project analytics"] div.dt-cell__content[title="Livré"]{
+    color : green;
+}
+
+
+[data-route="query-report/project analytics"] .dt-scrollable .dt-cell__content--col-3 ,
+[data-route="query-report/project analytics"] .dt-scrollable .dt-cell__content--col-4 ,
+[data-route="query-report/project analytics"] .dt-scrollable .dt-cell__content--col-5{
+	background-color : #ffc5004a;
+}
+
+[data-route="query-report/project analytics"] .dt-scrollable .dt-cell__content--col-6{
+	background-color : #ffc50094 ;
+}
+
+[data-route="query-report/project analytics"] .datatable .dt-header .dt-cell--header .dt-cell__content {
+    font-weight: bold !important;
+}
+
+[data-route="query-report/project analytics"] .dt-row-header .dt-cell__content--header-3 , 
+[data-route="query-report/project analytics"] .dt-row-header .dt-cell__content--header-4 , 
+[data-route="query-report/project analytics"] .dt-row-header .dt-cell__content--header-5 
+{
+	background-color : #ffc5004a !important;
+}
+
+[data-route="query-report/project analytics"] .dt-row-header .dt-cell__content--header-6 {
+	background-color : #ffc50094 !important;
+}
+

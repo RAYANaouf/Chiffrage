@@ -9,16 +9,16 @@ frappe.ui.form.on('Chiffrage', {
 
 	marge_type : function(frm){
 
-            frappe.msgprint("hello");
-
 	    if(frm.doc.marge_type == "Percent"){
-	       frm.toggle_display('marge_percentage',true)
-	       frm.toggle_display('marge_montant',false)
+	       frm.toggle_display('marge_percentage',true);
+	       frm.toggle_display('marge_montant',false);
 	    }
 	    else if(frm.doc.marge_type == "Montant"){
-	       frm.toggle_display('marge_percentage',false)
-	       frm.toggle_display('marge_montant',true)
+	       frm.toggle_display('marge_percentage',false);
+	       frm.toggle_display('marge_montant',true);
 	    }
+
+            calculate_total_project_cost(frm);
 
 
 	},
@@ -26,24 +26,40 @@ frappe.ui.form.on('Chiffrage', {
 
 	risque_type : function(frm){
 
-            //frm.msgprint("hello");
-
 	    if(frm.doc.risque_type == "Taux"){
-	       frm.toggle_display('risque_taux',true)
-	       frm.toggle_display('risque_montant',false)
+	       frm.toggle_display('risque_taux',true);
+	       frm.toggle_display('risque_montant',false);
 	    }
 	    else if(frm.doc.risque_type == "Montant"){
-	       frm.toggle_display('risque_taux',false)
-	       frm.toggle_display('risque_montant',true)
+	       frm.toggle_display('risque_taux',false);
+	       frm.toggle_display('risque_montant',true);
 	    }
 
+	   calculate_total_project_cost(frm);
+
 	},
+
+	risque_taux : function(frm){
+		calculate_total_project_cost(frm);
+	},
+
+	risque_montant : function(frm){
+		calculate_total_project_cost(frm);
+	},
+
+	marge_percentage : function(frm){
+		calculate_total_project_cost(frm);
+	},
+
+	marge_montant : function(frm){
+		calculate_total_project_cost(frm);
+	},
+
 
 	services_cost_cost : function(frm){
-
 		calculate_total_project_cost(frm);
-
 	},
+
 
 	materials_cost : function(frm){
 
@@ -57,25 +73,12 @@ frappe.ui.form.on('Chiffrage', {
 
 	},
 
-
-    // material_on_form_rendered(frm) { // "links" is the name of the table field in ToDo, "_add" is the event
-
-    //     frappe.msgprint('A row has been added to the mterial table 🎉 ');
-
-    // }
+	additional_bills_cost : function(frm){
+		calculate_total_project_cost(frm);
+	},
 
 
-})
-
-
-
-////////////////////////////////////////////////////////////////////////////////////
-
-// // General approach to catch all child table row additions
-// frappe.ui.form.on('chiffrage', 'child_table_material_add', function(frm, cdt, cdn) {
-// 	frappe.msgprint('A row has been added to the child table 🎉');
-// 	console.log("Child table row added");
-// });
+});
 
 
 //////////////////// chiffrage_hardware  //////////////////////////////////////
@@ -98,21 +101,15 @@ frappe.ui.form.on('ChiffrageHardware', { // The child table is defined in a Doct
         calculate_total_hardware_cost(frm);
     },
 
-});
+})
 
 
 //////////////////// chiffrage service  //////////////////////////////////////
 
 frappe.ui.form.on('ChiffrageService',{
 
-    services_add(frm){
-        //frm.toggle_display('services_cost_cost',true);
-        calculate_total_service_cost(frm)
-    },
-
 
     services_remove(frm){
-        //frm.toggle_display('services_cost_cost',false);
         calculate_total_service_cost(frm);
     },
 
@@ -120,18 +117,12 @@ frappe.ui.form.on('ChiffrageService',{
        calculate_total_service_cost(frm );
     },
 
-    
-
 })
 
-///////////////////// human resources ////////////////////
+///////////////////// human resources /////////////////////////////////////
 
 
 frappe.ui.form.on('ChiffrageHumanResource',{
-
-   human_resources_add(frm){
-	human_resources_cost(frm);
-   },
 
     human_resources_remove(frm){
         human_resources_cost(frm);
@@ -152,14 +143,33 @@ frappe.ui.form.on('ChiffrageHumanResource',{
 })
 
 
-/////////////////////  others   ////////////////////
+/////////////////////  others   /////////////////////////////////////////
 
 
 frappe.ui.form.on('chiffrage_others' , {
+	others_remove(frm){
+		calculate_total_resource_cost(frm);
+	},
 	cost : function(frm , cdt , cdn ){
 		calculate_total_resource_cost(frm);
-        }
+        },
 })
+
+
+//////////////////////  additional bills //////////////////////
+frappe.ui.form.on('Chiffrage_Additional_Bills' , {
+	additional_bills_cost_remove(frm){
+		calculate_total_resource_cost(frm);
+	},
+	cost : function(frm , cdt , cdn){
+		 calculate_total_additional_bills(frm)
+	},
+})
+
+
+
+
+
 
 ////////////////////// functions   ////////////////////////////
 
@@ -186,7 +196,7 @@ function calculate_total_hardware_cost(frm){
 
         total_cost +=  flt(material.total_cost);
 
-      });
+      })
 
       frm.set_value( "materials_cost" , total_cost);
 
@@ -211,11 +221,53 @@ function calculate_total_resource_cost(frm){
 	frm.set_value( "human_resources_cost" , total_cost);
 }
 
+
+
+//calcule total  aditional  bills
+
+function calculate_total_additional_bills(frm){
+
+        let total_cost = 0 ;
+
+        frm.doc.bills.forEach(bill => {
+
+                total_cost += flt(bill.cost);
+
+        });
+
+
+        frm.set_value( "additional_bills_cost" , total_cost);
+}
+
+//end
+
 function calculate_total_project_cost(frm){
 
-	let total_cost = 0 ;
+	let total_cost = 0;
+	let marge      = 0;
+        let risk       = 0;
+	let additional_bill = 0;
 
-	total_cost = flt(frm.doc.services_cost_cost) + flt(frm.doc.materials_cost) + flt(frm.doc.human_resources_cost)
+	total_cost = flt(frm.doc.services_cost_cost) + flt(frm.doc.materials_cost) + flt(frm.doc.human_resources_cost) ;
 
-	frm.set_value("total_project_cost" , total_cost);
+	if(frm.doc.marge_type == "Percent"){
+                marge = flt(total_cost * frm.doc.marge_percentage / 100 );
+	}
+        else{
+		marge = flt(frm.doc.marge_montant);
+	}
+
+	if(frm.doc.risque_type == "Taux"){
+		let percentage = flt(frm.doc.risque_taux / 100);
+		risk =   total_cost * percentage;
+	}
+	else{
+		risk = flt(frm.doc.risque_montant);
+	}
+
+
+        total_cost = total_cost + flt(frm.doc.additional_bills_cost) + flt(risk) + flt(marge) ;
+
+	frm.set_value("total_project_cost" , total_cost );
+
 }

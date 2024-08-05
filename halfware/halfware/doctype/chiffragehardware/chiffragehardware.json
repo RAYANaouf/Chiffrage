@@ -102,7 +102,7 @@
    "default": "0",
    "depends_on": "quantity",
    "fieldname": "total_cost",
-   "fieldtype": "Currency",
+   "fieldtype": "Read Only",
    "in_list_view": 1,
    "label": "Total cost"
   },
@@ -125,7 +125,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-07-30 20:09:22.200540",
+ "modified": "2024-08-05 15:08:26.915706",
  "modified_by": "Administrator",
  "module": "Halfware",
  "name": "ChiffrageHardware",
