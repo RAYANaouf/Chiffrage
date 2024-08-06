@@ -74,7 +74,7 @@ frappe.ui.form.on('Chiffrage', {
 	},
 
 
-});
+})
 
 
 //////////////////// chiffrage_hardware  //////////////////////////////////////
@@ -108,6 +108,19 @@ frappe.ui.form.on('ChiffrageService',{
     services_remove(frm){
         calculate_total_service_cost(frm);
     },
+
+
+    item : function(frm , cdt , cdn){
+    	let c = locals[cdt][cdn];
+
+	if (c.item) {
+            frappe.db.get_value('Item', c.item, 'item_name', (r) => {
+                frappe.model.set_value(cdt, cdn, 'service_name', r.item_name);
+            });
+        }
+
+    },
+
 
     cost(frm){
        calculate_total_service_cost(frm );
