@@ -23,6 +23,8 @@
   "marge_montant",
   "section_break_gz9a",
   "total_project_cost",
+  "column_break_z7cy",
+  "billed_amount",
   "etude_dexictence_tab",
   "secteur_dactivit\u00e9_section",
   "intervenant1",
@@ -324,6 +326,15 @@
    "fieldname": "additional_bills_cost",
    "fieldtype": "Read Only",
    "label": "Total Cost"
+  },
+  {
+   "fieldname": "column_break_z7cy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "billed_amount",
+   "fieldtype": "Read Only",
+   "label": "Billed amount"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -335,7 +346,7 @@
    "link_fieldname": "custom_chiffrage"
   }
  ],
- "modified": "2024-08-05 16:07:09.483779",
+ "modified": "2024-08-06 00:39:29.581859",
  "modified_by": "Administrator",
  "module": "Halfware",
  "name": "Chiffrage",

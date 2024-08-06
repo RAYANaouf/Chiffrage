@@ -62,15 +62,11 @@ frappe.ui.form.on('Chiffrage', {
 
 
 	materials_cost : function(frm){
-
                 calculate_total_project_cost(frm);
-
         },
 
         human_resources_cost : function(frm){
-
 		calculate_total_project_cost(frm);
-
 	},
 
 	additional_bills_cost : function(frm){
@@ -247,6 +243,7 @@ function calculate_total_project_cost(frm){
 	let marge      = 0;
         let risk       = 0;
 	let additional_bill = 0;
+	let billed_cost     = 0;
 
 	total_cost = flt(frm.doc.services_cost_cost) + flt(frm.doc.materials_cost) + flt(frm.doc.human_resources_cost) ;
 
@@ -266,8 +263,11 @@ function calculate_total_project_cost(frm){
 	}
 
 
-        total_cost = total_cost + flt(frm.doc.additional_bills_cost) + flt(risk) + flt(marge) ;
+        total_cost  = total_cost  + flt(risk)  ;
+        billed_cost = total_cost + flt(frm.doc.additional_bills_cost) + flt(marge) ;
+//        billed_cost = total_cost + flt(frm.doc.additional_bills_cost) + flt(marge) ;
 
-	frm.set_value("total_project_cost" , total_cost );
+	frm.set_value("total_project_cost" , total_cost  );
+	frm.set_value("billed_amount"      , billed_cost );
 
 }
