@@ -79,6 +79,40 @@ frappe.ui.form.on('Chiffrage', {
 		calculate_total_project_cost(frm);
 	},
 
+	total_project_cost : function(frm){
+		//when the total cost change we should recalculate the risk and the mantont
+		if(frm.doc.risque_type == "Taux"){
+			calculate_risk_montant(frm);
+		}
+		else{
+			calculate_risk_taux(frm);
+		}
+
+		if(frm.doc.marge_type == "Percent"){
+			calculate_marge_montant(frm);
+		}
+		else{
+			calculate_marge_percentage(frm);
+		}
+	},
+
+	billed_amount : function(frm){
+		//when the billed amount  change we should recalculate the risk and the mantont
+                if(frm.doc.risque_type == "Taux"){
+                        calculate_risk_montant(frm);
+                }
+                else{
+                        calculate_risk_taux(frm);
+                }
+
+                if(frm.doc.marge_type == "Percent"){
+                        calculate_marge_montant(frm);
+                }
+                else{
+                        calculate_marge_percentage(frm);
+                }
+	},
+
 
 })
 
