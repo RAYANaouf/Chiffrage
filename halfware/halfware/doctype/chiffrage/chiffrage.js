@@ -10,29 +10,31 @@ frappe.ui.form.on('Chiffrage', {
 	marge_type : function(frm){
 
 	    if(frm.doc.marge_type == "Percent"){
-	       frm.toggle_display('marge_percentage',true);
-	       frm.toggle_display('marge_montant',false);
+	        frm.set_df_property('marge_percentage' , 'read_only' , 0 );
+		frm.set_df_property('marge_montant'    , 'read_only' , 1 );
 	    }
 	    else if(frm.doc.marge_type == "Montant"){
-	       frm.toggle_display('marge_percentage',false);
-	       frm.toggle_display('marge_montant',true);
+	        frm.set_df_property('marge_percentage' , 'read_only' , 1);
+		frm.set_df_property('marge_montant'    , 'read_only' , 0);
 	    }
 
             calculate_total_project_cost(frm);
 
-
 	},
-
 
 	risque_type : function(frm){
 
 	    if(frm.doc.risque_type == "Taux"){
-	       frm.toggle_display('risque_taux',true);
-	       frm.toggle_display('risque_montant',false);
+	        frm.set_df_property('risque_taux' , 'read_only' , 0);
+		frm.set_df_property('risque_montant' , 'read_only' , 1)
+		//frm.toggle_display('risque_taux',true);
+	        //frm.toggle_display('risque_montant',false);
 	    }
 	    else if(frm.doc.risque_type == "Montant"){
-	       frm.toggle_display('risque_taux',false);
-	       frm.toggle_display('risque_montant',true);
+	        frm.set_df_property('risque_taux' , 'read_only' , 1);
+		frm.set_df_property('risque_montant' , 'read_only' , 0)
+	        //frm.toggle_display('risque_taux',false);
+	        //frm.toggle_display('risque_montant',true);
 	    }
 
 	   calculate_total_project_cost(frm);
@@ -40,18 +42,22 @@ frappe.ui.form.on('Chiffrage', {
 	},
 
 	risque_taux : function(frm){
+		calculate_risk_montant(frm);
 		calculate_total_project_cost(frm);
 	},
 
 	risque_montant : function(frm){
+		calculate_risk_taux(frm);
 		calculate_total_project_cost(frm);
 	},
 
 	marge_percentage : function(frm){
+   		calculate_marge_montant(frm);
 		calculate_total_project_cost(frm);
 	},
 
 	marge_montant : function(frm){
+		calculate_marge_percentage(frm);
 		calculate_total_project_cost(frm);
 	},
 
@@ -248,7 +254,30 @@ function calculate_total_additional_bills(frm){
         frm.set_value( "additional_bills_cost" , total_cost);
 }
 
-//end
+
+
+//functions to calculte the taux and marge each time it change (percentage & montant)
+function calculate_risk_montant(frm){
+	let project_cost  = flt(frm.doc.services_cost_cost) + flt(frm.doc.materials_cost) + flt(frm.doc.human_resources_cost) ;
+	frm.set_value( "risque_montant" , flt(frm.doc.risque_taux*project_cost/100)  );
+}
+
+function calculate_risk_taux(frm){
+	let project_cost  = flt(frm.doc.services_cost_cost) + flt(frm.doc.materials_cost) + flt(frm.doc.human_resources_cost) ;
+	frm.set_value( "risque_taux" , flt(frm.doc.risque_montant * 100 / project_cost)  );
+}
+
+function calculate_marge_percentage(frm){
+	let project_cost  = flt(frm.doc.services_cost_cost) + flt(frm.doc.materials_cost) + flt(frm.doc.human_resources_cost) ;
+	frm.set_value( "marge_percentage" , flt(frm.doc.marge_montant * 100 / project_cost) );
+}
+function calculate_marge_montant(frm){
+	let project_cost  = flt(frm.doc.services_cost_cost) + flt(frm.doc.materials_cost) + flt(frm.doc.human_resources_cost) ;
+	frm.set_value( "marge_montant" , flt(frm.doc.marge_percentage*project_cost/100)  )
+}
+
+
+//final function to calculate project cost and billed project
 
 function calculate_total_project_cost(frm){
 
@@ -260,20 +289,23 @@ function calculate_total_project_cost(frm){
 
 	total_cost = flt(frm.doc.services_cost_cost) + flt(frm.doc.materials_cost) + flt(frm.doc.human_resources_cost) ;
 
-	if(frm.doc.marge_type == "Percent"){
-                marge = flt(total_cost * frm.doc.marge_percentage / 100 );
-	}
-        else{
-		marge = flt(frm.doc.marge_montant);
-	}
+	//if(frm.doc.marge_type == "Percent"){
+        //        marge = flt(total_cost * frm.doc.marge_percentage / 100 );
+	//}
+        //else{
+	//	marge = flt(frm.doc.marge_montant);
+	//}
 
-	if(frm.doc.risque_type == "Taux"){
-		let percentage = flt(frm.doc.risque_taux / 100);
-		risk =   total_cost * percentage;
-	}
-	else{
-		risk = flt(frm.doc.risque_montant);
-	}
+	//if(frm.doc.risque_type == "Taux"){
+	//	let percentage = flt(frm.doc.risque_taux / 100);
+	//	risk =   total_cost * percentage;
+	//}
+	//else{
+	//	risk = flt(frm.doc.risque_montant);
+	//}
+
+	marge = flt(frm.doc.marge_montant);
+	risk  = flt(frm.doc.risque_montant)
 
 
         total_cost  = total_cost  + flt(risk)  ;

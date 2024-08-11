@@ -214,8 +214,8 @@
    "default": "0",
    "fieldname": "risque_montant",
    "fieldtype": "Float",
-   "hidden": 1,
-   "label": "Montant"
+   "label": "Montant",
+   "read_only": 1
   },
   {
    "default": "0",
@@ -227,8 +227,8 @@
    "default": "0",
    "fieldname": "marge_montant",
    "fieldtype": "Float",
-   "hidden": 1,
-   "label": "Montant"
+   "label": "Montant",
+   "read_only": 1
   },
   {
    "fieldname": "chiffre_daffaire_desc",
@@ -346,7 +346,7 @@
    "link_fieldname": "custom_chiffrage"
   }
  ],
- "modified": "2024-08-06 00:39:29.581859",
+ "modified": "2024-08-11 12:56:46.802944",
  "modified_by": "Administrator",
  "module": "Halfware",
  "name": "Chiffrage",
