@@ -12,19 +12,19 @@ class Chiffrage(Document):
 		additional_bill = 0
 
 		for material       in self.get("materials"):
-                	total_cost += material.total_cost
+                 	total_cost += float(material.total_cost or 0 )
 
 		for service        in self.get("services"):
-			total_cost += service.cost
+			total_cost += float(service.cost or 0 )
 
 		for human_resource in self.get("human_resources"):
-			total_cost += human_resource.total_cost
+			total_cost += float(human_resource.total_cost or 0 )
 
 		for other_resource in self.get("others"):
-			total_cost += other_resource.cost
+			total_cost += float(other_resource.cost or 0 )
 
 		for bill           in self.get("bills"):
-			additional_bill += bill.cost
+			additional_bill += float(bill.cost or 0 )
 
 		marge = 0
 		risk  = 0
