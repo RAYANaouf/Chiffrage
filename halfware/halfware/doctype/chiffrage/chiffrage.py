@@ -26,18 +26,8 @@ class Chiffrage(Document):
 		for bill           in self.get("bills"):
 			additional_bill += float(bill.cost or 0 )
 
-		marge = 0
-		risk  = 0
-
-		if self.risque_type == "Taux" :
-			risk  = ( self.risque_taux * total_cost / 100 )
-		else:
-			risk  = self.risque_montant
-
-		if self.marge_type == "Percent" :
-			marge = (  self.marge_percentage * total_cost / 100 )
-		else:
-			marge = self.marge_montant
+		marge = self.marge_montant
+		risk  = self.risque_montant
 
 		self.total_project_cost = total_cost + risk
 		self.billed_amount      = total_cost + risk + marge + additional_bill
