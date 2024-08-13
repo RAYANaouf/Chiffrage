@@ -26,11 +26,8 @@
  ],
  "fields": [
   {
-   "columns": 2,
    "fieldname": "material_name",
    "fieldtype": "Data",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
    "label": "Material Name"
   },
   {
@@ -84,8 +81,11 @@
    "label": "description"
   },
   {
+   "columns": 2,
    "fieldname": "item",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Item",
    "options": "Item",
    "reqd": 1
@@ -125,7 +125,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-08-05 15:08:26.915706",
+ "modified": "2024-08-13 12:36:57.682832",
  "modified_by": "Administrator",
  "module": "Halfware",
  "name": "ChiffrageHardware",

@@ -8,11 +8,11 @@
  "field_order": [
   "job",
   "column_break_oj2z",
-  "total_cost",
-  "section_break_hkha",
   "salary_by_hour",
   "column_break_iyow",
-  "working_hours_estimation"
+  "working_hours_estimation",
+  "section_break_hkha",
+  "total_cost"
  ],
  "fields": [
   {
@@ -63,7 +63,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-08-05 15:27:17.899226",
+ "modified": "2024-08-13 12:39:00.939874",
  "modified_by": "Administrator",
  "module": "Halfware",
  "name": "ChiffrageHumanResource",
