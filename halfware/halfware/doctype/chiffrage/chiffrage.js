@@ -8,87 +8,54 @@ frappe.ui.form.on('Chiffrage', {
 
 
 	marge_type : function(frm){
-
-	    if(frm.doc.marge_type == "Percent"){
-	        frm.set_df_property('marge_percentage' , 'read_only' , 0 );
-		frm.set_df_property('marge_montant'    , 'read_only' , 1 );
-	    }
-	    else if(frm.doc.marge_type == "Montant"){
-	        frm.set_df_property('marge_percentage' , 'read_only' , 1);
-		frm.set_df_property('marge_montant'    , 'read_only' , 0);
-	    }
-
-
+		frm.set_df_property('marge_percentage' , 'read_only' , (frm.doc.marge_type != "Percent") );
+		frm.set_df_property('marge_montant'    , 'read_only' , (frm.doc.marge_type != "Montant") );
 	},
 
 	risque_type : function(frm){
-
-	    if(frm.doc.risque_type == "Taux"){
-	        frm.set_df_property('risque_taux' , 'read_only' , 0);
-		frm.set_df_property('risque_montant' , 'read_only' , 1)
-	    }
-	    else if(frm.doc.risque_type == "Montant"){
-	        frm.set_df_property('risque_taux' , 'read_only' , 1);
-		frm.set_df_property('risque_montant' , 'read_only' , 0)
-	    }
-
+	        frm.set_df_property('risque_taux'    , 'read_only' , frm.doc.risque_type != "Taux");
+	        frm.set_df_property('risque_montant' , 'read_only' , frm.doc.risque_type != "Montant");
 	},
 
 
 	risque_taux : function(frm){
-		calculate_risk_montant(frm);
-		calculate_total_project_cost(frm);
+		calculate_risk(frm);
 	},
 
 	risque_montant : function(frm){
-		calculate_risk_taux(frm);
-		calculate_total_project_cost(frm);
+		calculate_risk(frm);
 	},
 
 	marge_percentage : function(frm){
-   		calculate_marge_montant(frm);
-		calculate_total_project_cost(frm);
+   		calculate_marge(frm);
 	},
 
 	marge_montant : function(frm){
-		calculate_marge_percentage(frm);
-		calculate_total_project_cost(frm);
+		calculate_marge(frm);
 	},
 
 
 	services_cost_cost : function(frm){
-		calculate_total_project_cost(frm);
+		calculate_risk(frm);
+		calculate_marge(frm);
 	},
 
 
 	materials_cost : function(frm){
-                calculate_total_project_cost(frm);
+		calculate_risk(frm);
+		calculate_marge(frm);
         },
 
         human_resources_cost : function(frm){
-		calculate_total_project_cost(frm);
+		calculate_risk(frm);
+		calculate_marge(frm);
 	},
 
 	additional_bills_cost : function(frm){
 		calculate_total_project_cost(frm);
+		calculate_billed_amount(frm);
 	},
 
-	total_project_cost : function(frm){
-		//when the total cost change we should recalculate the risk and the mantont
-		if(frm.doc.risque_type == "Taux"){
-			calculate_risk_montant(frm);
-		}
-		else{
-			calculate_risk_taux(frm);
-		}
-
-		if(frm.doc.marge_type == "Percent"){
-			calculate_marge_montant(frm);
-		}
-		else{
-			calculate_marge_percentage(frm);
-		}
-	},
 
 
 })
@@ -217,16 +184,12 @@ function calculate_total_service_cost(frm) {
 
 function calculate_total_hardware_cost(frm){
 
-      let total_cost = 0; 
+        let total_cost = 0;
+	frm.doc.materials.forEach(material => {
+		total_cost +=  flt(material.total_cost);
+	})
 
-      frm.doc.materials.forEach(material => {
-
-        total_cost +=  flt(material.total_cost);
-
-      })
-
-      frm.set_value( "materials_cost" , total_cost);
-
+        frm.set_value( "materials_cost" , total_cost);
 }
 
 function calculate_total_resource_cost(frm){
@@ -257,11 +220,8 @@ function calculate_total_additional_bills(frm){
         let total_cost = 0 ;
 
         frm.doc.bills.forEach(bill => {
-
-                total_cost += flt(bill.cost);
-
-        });
-
+		total_cost += flt(bill.cost);
+	 });
 
         frm.set_value( "additional_bills_cost" , total_cost);
 }
@@ -269,47 +229,51 @@ function calculate_total_additional_bills(frm){
 
 
 //functions to calculte the taux and marge each time it change (percentage & montant)
-function calculate_risk_montant(frm){
+function calculate_risk(frm){
 	let project_cost  = flt(frm.doc.services_cost_cost) + flt(frm.doc.materials_cost) + flt(frm.doc.human_resources_cost) ;
-	frm.set_value( "risque_montant" , flt(frm.doc.risque_taux*project_cost/100)  );
+
+	if( frm.doc.risque_type == "Taux")
+		frm.set_value( "risque_montant" , flt(frm.doc.risque_taux * project_cost / 100) );
+	else
+		frm.set_value( "risque_taux" , flt(frm.doc.risque_montant * 100 / project_cost) );
+
+	calculate_total_project_cost(frm);
+        calculate_billed_amount(frm);
 }
 
-function calculate_risk_taux(frm){
+function calculate_marge(frm){
 	let project_cost  = flt(frm.doc.services_cost_cost) + flt(frm.doc.materials_cost) + flt(frm.doc.human_resources_cost) ;
-	frm.set_value( "risque_taux" , flt(frm.doc.risque_montant * 100 / project_cost)  );
+
+	if(frm.doc.marge_type == "Percent")
+		frm.set_value( "marge_montant" , flt(frm.doc.marge_percentage * project_cost / 100) );
+	else
+		frm.set_value( "marge_percentage" , flt(frm.doc.marge_montant * 100 / project_cost) );
+
+        calculate_billed_amount(frm);
 }
 
-function calculate_marge_percentage(frm){
-	let project_cost  = flt(frm.doc.services_cost_cost) + flt(frm.doc.materials_cost) + flt(frm.doc.human_resources_cost) ;
-	frm.set_value( "marge_percentage" , flt(frm.doc.marge_montant * 100 / project_cost) );
-}
-function calculate_marge_montant(frm){
-	let project_cost  = flt(frm.doc.services_cost_cost) + flt(frm.doc.materials_cost) + flt(frm.doc.human_resources_cost) ;
-	frm.set_value( "marge_montant" , flt(frm.doc.marge_percentage*project_cost/100)  )
-}
 
 
 //final function to calculate project cost and billed project
-
 function calculate_total_project_cost(frm){
 
 	let total_cost = 0;
-	let marge      = 0;
-        let risk       = 0;
-	let additional_bill = 0;
-	let billed_cost     = 0;
-
 	total_cost = flt(frm.doc.services_cost_cost) + flt(frm.doc.materials_cost) + flt(frm.doc.human_resources_cost) ;
 
-
-	marge = flt(frm.doc.marge_montant);
-	risk  = flt(frm.doc.risque_montant)
-
-
-        total_cost  = total_cost  + flt(risk)  ;
-        billed_cost = total_cost + flt(frm.doc.additional_bills_cost) + flt(marge) ;
-
+        total_cost  = flt(total_cost) + flt(frm.doc.risque_montant)  ;
 	frm.set_value("total_project_cost" , total_cost  );
-	frm.set_value("billed_amount"      , billed_cost );
+}
 
+function calculate_billed_amount(frm){
+
+	let marge      = 0;
+        let billed_cost     = 0;
+
+
+        marge = flt(frm.doc.marge_montant);
+
+
+        billed_cost = flt(frm.doc.total_project_cost) + flt(frm.doc.additional_bills_cost) + flt(marge) ;
+
+	frm.set_value("billed_amount"      , billed_cost );
 }
