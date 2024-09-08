@@ -45,7 +45,7 @@ To install the **Halfware App** on your Frappe or ERPNext instance:
 
 ```bash
 $ bench get-app https://github.com/RAYANaouf/halfware
-$ bench --site your-site install-app client1_app
+$ bench --site your-site install-app halfware
 ```
 ### Usage
 Once installed, you can access the chiffrage Doctype to start managing your project estimations. Here’s how you can use it:
