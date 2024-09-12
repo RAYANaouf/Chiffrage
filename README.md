@@ -1,10 +1,10 @@
 
 <h1 align="center" >
-  halfware app
+  Chiffrage app
 </h1>
 
 ### Overview
-The **Halfware App** is a custom application built on the Frappe framework designed to facilitate project cost estimation and management. This app includes a `chiffrage` Doctype, which allows users to estimate project costs and manage related details efficiently.
+The **Chiffrage App** is a custom application built on the Frappe framework designed to facilitate project cost estimation and management. This app includes a `chiffrage` Doctype, which allows users to estimate project costs and manage related details efficiently.
 
 <br>
 
